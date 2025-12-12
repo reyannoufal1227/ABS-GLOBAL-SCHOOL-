@@ -1,0 +1,2671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABS Global School – Nurturing World Class Leaders</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary: #0077ff;
+            --primary-dark: #005bba;
+            --accent: #ffb31a;
+            --bg: #f4f7fb;
+            --text: #1e1e2f;
+            --muted: #7a7a8c;
+            --card-bg: #ffffff;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --shadow-soft: 0 14px 40px rgba(15, 23, 42, 0.18);
+            --shadow-subtle: 0 6px 20px rgba(15, 23, 42, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", Arial, sans-serif;
+            background: radial-gradient(circle at top left, #e0f2ff 0, #f4f7fb 45%, #f4f7fb 100%);
+            color: var(--text);
+        }
+
+        /* ======= HEADER / NAVBAR ======= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(14px);
+            background: linear-gradient(90deg, rgba(5, 37, 80, 0.94), rgba(0, 119, 255, 0.94));
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+        }
+
+        .nav {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .nav-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-title h1 {
+            font-size: 22px;
+            margin: 0;
+            color: #ffffff;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-title span {
+            font-size: 11px;
+            color: #cde4ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            text-decoration: none;
+            color: #e7f2ff;
+            padding: 6px 10px;
+            border-radius: 999px;
+            transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .nav-cta {
+            background: #ffffff;
+            color: var(--primary-dark);
+            border-radius: 999px;
+            padding: 7px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+        }
+
+        /* ======= PAGES (SPA STYLE) ======= */
+        .page {
+            display: none;
+        }
+
+        #page-home {
+            display: block; /* default page */
+        }
+
+        /* ======= HERO SECTION ======= */
+        .hero {
+            max-width: 1180px;
+            margin: 22px auto 40px;
+            padding: 0 18px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+            gap: 26px;
+            align-items: center;
+        }
+
+        .hero-left h2 {
+            font-size: clamp(30px, 3vw + 14px, 40px);
+            margin: 0 0 10px;
+            line-height: 1.2;
+        }
+
+        .hero-left h2 span {
+            color: var(--primary-dark);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            border-radius: 999px;
+            padding: 5px 12px;
+            font-size: 11px;
+            margin-bottom: 10px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .hero-subtitle {
+            margin: 0 0 12px;
+            color: var(--muted);
+            font-size: 14px;
+            max-width: 460px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .btn-primary,
+        .btn-ghost {
+            border-radius: 999px;
+            padding: 10px 18px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #ffffff;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.35);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--primary-dark);
+            border: 1px solid rgba(148, 163, 184, 0.5);
+        }
+
+        .btn-ghost:hover {
+            background: #ffffff;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 4px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .stat-chip {
+            background: #ffffff;
+            border-radius: 999px;
+            padding: 7px 14px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .stat-chip span {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .hero-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: radial-gradient(circle at top left, #1e293b, #020617);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            isolation: isolate;
+        }
+
+        .hero-campus-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            filter: saturate(1.05);
+        }
+
+        .hero-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.1));
+        }
+
+        .hero-card-content {
+            position: absolute;
+            bottom: 14px;
+            left: 16px;
+            right: 16px;
+            color: #e5e7eb;
+        }
+
+        .hero-card-title {
+            font-size: 16px;
+            margin: 0 0 4px;
+        }
+
+        .hero-card-sub {
+            font-size: 11px;
+            color: #cbd5f5;
+            margin-bottom: 10px;
+        }
+
+        .hero-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 10px;
+        }
+
+        .tag-pill {
+            border-radius: 999px;
+            padding: 4px 9px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+        }
+
+        .floating-badge {
+            position: absolute;
+            top: -12px;
+            right: -10px;
+            background: #ffffff;
+            color: var(--primary-dark);
+            padding: 8px 13px;
+            border-radius: 14px;
+            font-size: 11px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .floating-badge span {
+            font-weight: 700;
+        }
+
+        /* ======= GENERIC LAYOUT ======= */
+        .section {
+            max-width: 1180px;
+            margin: 0 auto 40px;
+            padding: 0 18px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .section-subtitle {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* ======= ABOUT + HIGHLIGHTS ======= */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 16px 16px 18px;
+            box-shadow: var(--shadow-subtle);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.15), transparent 55%);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 15px;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .pill-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--primary-dark);
+            font-size: 11px;
+            margin-bottom: 6px;
+        }
+
+        .pill-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--primary);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 18px;
+        }
+
+        .about-image-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .about-image-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-image-tag {
+            position: absolute;
+            bottom: 12px;
+            left: 14px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #e5e7eb;
+            padding: 8px 13px;
+            border-radius: 999px;
+            font-size: 11px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .about-image-tag span {
+            font-weight: 600;
+            color: #facc15;
+        }
+
+        /* ======= GALLERY ======= */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .gallery-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-subtle);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-card figcaption {
+            padding: 10px 12px 12px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* ======= LOGIN SECTION ======= */
+        #login {
+            scroll-margin-top: 80px;
+        }
+
+        .login-wrapper {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 20px;
+        }
+
+        .login-panel {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 18px 18px 20px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .login-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+
+        .login-panel-header h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .mini-badge {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .login-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .login-box {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 12px 12px 14px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .login-box h4 {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 8px 9px;
+            border-radius: 999px;
+            border: 1px solid #d0d7e2;
+            font-size: 12px;
+            outline: none;
+            transition: border 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .input-field:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #ffffff;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .login-note {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+        .login-note code {
+            background: #0f172a;
+            color: #e5e7eb;
+            padding: 3px 6px;
+            border-radius: 999px;
+            font-size: 10px;
+        }
+
+        .login-side-card {
+            background: radial-gradient(circle at top left, #0ea5e9, #1d4ed8);
+            border-radius: var(--radius-lg);
+            padding: 18px 18px 20px;
+            color: #e5e7eb;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-side-card::after {
+            content: "";
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(248, 250, 252, 0.18), transparent 70%);
+            top: -40px;
+            right: -10px;
+        }
+
+        .login-side-card h3 {
+            margin: 0 0 8px;
+            font-size: 17px;
+        }
+
+        .login-side-card p {
+            margin: 0 0 14px;
+            font-size: 13px;
+        }
+
+        .login-side-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 6px;
+            font-size: 12px;
+        }
+
+        .login-side-list li {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .login-side-list span {
+            font-size: 14px;
+        }
+
+        /* ======= CONTACT / FEES PAGE ======= */
+        #contact-page {
+            scroll-margin-top: 80px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1.2fr;
+            gap: 18px;
+        }
+
+        .contact-card,
+        .mini-map {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .contact-item {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 2px;
+        }
+
+        .mini-map {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            font-size: 11px;
+            color: var(--muted);
+            border: 1px dashed #d4d4e0;
+        }
+
+        /* ======= DASHBOARDS ======= */
+        .dashboard {
+            max-width: 1180px;
+            margin: 18px auto 40px;
+            padding: 0 18px 10px;
+        }
+
+        .dashboard .section-title {
+            margin-bottom: 10px;
+        }
+
+        .table-box {
+            background-color: var(--card-bg);
+            padding: 14px 14px 16px;
+            margin-top: 14px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-subtle);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        table th,
+        table td {
+            padding: 8px 10px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            white-space: nowrap;
+        }
+
+        table th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        ul {
+            padding-left: 18px;
+        }
+
+        .footer {
+            background: #020617;
+            color: #9ca3af;
+            text-align: center;
+            padding: 18px 10px;
+            font-size: 11px;
+            margin-top: 50px;
+        }
+
+        .footer span {
+            color: #e5e7eb;
+        }
+
+        /* ======= SCROLL TO TOP BUTTON (extra feature) ======= */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 14px;
+            right: 14px;
+            border: none;
+            border-radius: 999px;
+            padding: 8px 11px;
+            font-size: 12px;
+            cursor: pointer;
+            background: #0f172a;
+            color: #e5e7eb;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35);
+            display: none;
+            z-index: 1200;
+        }
+
+        /* ======= RESPONSIVE ======= */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .grid-3,
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .grid-2,
+            .login-wrapper,
+            .contact-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .login-container {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .hero {
+                margin-top: 16px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .grid-3,
+            .gallery-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ======= NAVBAR ======= -->
+    <header>
+        <div class="nav">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <!-- Your logo -->
+                    <img src="download1.jfif" alt="" />
+                </div>
+                <div class="nav-title">
+                    <h1>ABS Global School</h1>
+                    <span id="welcome-line">Nurturing World Class Leaders · Trikaripur, Kerala</span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#" id="nav-home" onclick="openPublicPage('page-home', this); return false;">Home</a>
+                <a href="#" id="nav-about" onclick="openPublicPage('page-home', this, 'about-us'); return false;">About</a>
+                <a href="#" id="nav-gallery" onclick="openPublicPage('page-gallery', this); return false;">Gallery</a>
+                <a href="#" id="nav-portals" onclick="openPublicPage('page-portals', this); return false;">Portals</a>
+                <a href="#" id="nav-contact" onclick="openPublicPage('page-contact', this); return false;">Contact & Fees</a>
+                <a href="#" id="nav-cta" class="nav-cta" onclick="openPublicPage('page-portals', this, 'login'); return false;">Login to Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ======= PAGE: HOME (HERO + ABOUT + FEATURE 30 PLACEHOLDER) ======= -->
+    <div id="page-home" class="page">
+        <!-- HERO -->
+        <section id="home" class="hero">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <div class="hero-badge-dot"></div>
+                    CBSE · Experiential Learning · Global Mindset
+                </div>
+                <h2>
+                    Building <span>future-ready leaders</span> with heart, mind & character.
+                </h2>
+                <p class="hero-subtitle">
+                    ABS Global School blends academic excellence with values, innovation, and holistic development in a safe, world-class campus at Trikaripur.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="openPublicPage('page-portals', document.getElementById('nav-portals'), 'login')">
+                        Explore Dashboards →
+                    </button>
+                    <button class="btn-ghost" onclick="document.getElementById('about-us').scrollIntoView({behavior:'smooth'})">
+                        Discover Our Vision
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-chip"><span id="stat-students">1000+</span> students nurtured</div>
+                    <div class="stat-chip"><span>21st-century</span> skills focus</div>
+                    <div class="stat-chip"><span>Smart</span> digital campus</div>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-card">
+                    <img src="images.jfif" alt="" class="hero-campus-img" />
+                    <div class="hero-card-overlay"></div>
+                    <div class="hero-card-content">
+                        <h3 class="hero-card-title">ABS Educity, Trikaripur</h3>
+                        <p class="hero-card-sub">Safe, modern campus with GPS-enabled buses and world-class infrastructure.</p>
+                        <div class="hero-card-tags">
+                            <div class="tag-pill">STEM Labs</div>
+                            <div class="tag-pill">Indoor & Outdoor Sports</div>
+                            <div class="tag-pill">Activity-based Learning</div>
+                        </div>
+                    </div>
+                    <div class="floating-badge">
+                        <span>CBSE</span> | K-12
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT / HIGHLIGHTS -->
+        <section id="about-us" class="section">
+            <div class="section-header">
+                <h2 class="section-title">About ABS Global School</h2>
+                <p class="section-subtitle">Holistic learning · Global exposure · Rooted in strong values</p>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <div class="pill-label">
+                        <div class="pill-dot"></div>
+                        Our Educational Philosophy
+                    </div>
+                    <p style="font-size: 13px; color: var(--muted); line-height: 1.8; margin-bottom: 12px;">
+                        Our vision is to provide an education system that nurtures students in all aspects of life. ABS Global School offers a comprehensive, child-centric curriculum that helps students become compassionate, self-reliant, and future-ready citizens.
+                    </p>
+                    <p style="font-size: 13px; color: var(--muted); line-height: 1.8; margin-bottom: 14px;">
+                        We emphasise experiential learning — students learn by doing, discovering, and creating. Our teachers use student-centred methods to build confidence, curiosity, and character in a supportive environment. Along with academic excellence, we prioritise physical, psychological, social, and cultural growth.
+                    </p>
+
+                    <div class="grid-3" style="margin-top: 10px;">
+                        <div class="card">
+                            <h3>Experiential Curriculum</h3>
+                            <p>Project-based learning, lab-based science, and real-world problem-solving integrated into everyday classroom teaching.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Holistic Development</h3>
+                            <p>Equal focus on academics, sports, arts, leadership, and life skills to nurture well-rounded personalities.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Global Outlook</h3>
+                            <p>Digital classrooms, technology integration, and value-based education to prepare students for a changing world.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image-card">
+                    <img src="download.jfif" alt="ABS Global School Transport & Campus" />
+                    <div class="about-image-tag">
+                        Rated <span>“Safe & Student-Friendly Campus”</span> · Parent-trusted in Trikaripur
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURE 30 PLACEHOLDER (Reserved) -->
+        <section class="section">
+            <div class="table-box">
+                <h3>Reserved Area for Next Custom Feature</h3>
+                <p style="font-size:13px;color:var(--muted);">
+                    This section is kept free so that we can add your next idea exactly the way you want after you test everything.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- ======= PAGE: GALLERY ======= -->
+    <div id="page-gallery" class="page">
+        <section id="gallery" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Campus Life & Gallery</h2>
+                <p class="section-subtitle">A glimpse of ABS Global School, Trikaripur.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <figure class="gallery-card">
+                    <img src="abs-front-view.jpg" alt="Front view of ABS Global School Trikaripur" />
+                    <figcaption>Front view of ABS Global School, Trikaripur.</figcaption>
+                </figure>
+                <figure class="gallery-card">
+                    <img src="download3.jfif" alt="Digital classroom at ABS Global School" />
+                    <figcaption>Smart classrooms designed for active, digital learning.</figcaption>
+                </figure>
+                <figure class="gallery-card">
+                    <img src="images2.jfif" alt="Library at ABS Global School" />
+                    <figcaption>Well-stocked library that encourages a deep reading culture.</figcaption>
+                </figure>
+                <figure class="gallery-card">
+                    <img src="download4.jfif" alt="Playground and sports ground" />
+                    <figcaption>Spacious playground and sports facilities for holistic development.</figcaption>
+                </figure>
+                <figure class="gallery-card">
+                    <img src="download2.jfif" alt="Science lab at ABS Global School" />
+                    <figcaption>Hands-on STEM and science labs for practical learning.</figcaption>
+                </figure>
+                <figure class="gallery-card">
+                    <img src="" alt="School event at ABS Global School" />
+                    <figcaption>English speaking skills.</figcaption>
+                </figure>
+            </div>
+
+            <!-- Dynamic gallery items managed from Admin -->
+            <div id="dynamic-gallery" class="gallery-grid" style="margin-top:18px;"></div>
+        </section>
+    </div>
+
+    <!-- ======= PAGE: PORTALS (LOGIN) ======= -->
+    <div id="page-portals" class="page">
+        <section id="login" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Smart Digital Portals</h2>
+                <p class="section-subtitle">Admin, Teachers, and Students – all connected through a unified dashboard.</p>
+            </div>
+
+            <div class="login-wrapper">
+                <div class="login-panel">
+                    <div class="login-panel-header">
+                        <h3>Login to Your Portal</h3>
+                        <span class="mini-badge">Secure · Role-based access · Local data storage</span>
+                    </div>
+
+                    <div class="login-container">
+                        <!-- Admin Login -->
+                        <div class="login-box">
+                            <h4>Admin Login</h4>
+                            <input type="text" id="admin-username" class="input-field" placeholder="Admin Username" />
+                            <input type="password" id="admin-password" class="input-field" placeholder="Password" />
+                            <button class="btn" onclick="adminLogin()">Sign in as Admin</button>
+                        </div>
+
+                        <!-- Teacher Login -->
+                        <div class="login-box">
+                            <h4>Teacher Login</h4>
+                            <input type="text" id="teacher-username" class="input-field" placeholder="Teacher Username" />
+                            <input type="password" id="teacher-password" class="input-field" placeholder="Password" />
+                            <button class="btn" onclick="teacherLogin()">Sign in as Teacher</button>
+                        </div>
+
+                        <!-- Student Login -->
+                        <div class="login-box">
+                            <h4>Student Login</h4>
+                            <input type="text" id="student-username" class="input-field" placeholder="Student Name / ID" />
+                            <input type="password" id="student-password" class="input-field" placeholder="Password" />
+                            <button class="btn" onclick="studentLogin()">Sign in as Student</button>
+                        </div>
+                    </div>
+
+                    <p class="login-note">
+                        Use your official ABS Global School username and password for each portal.<br />
+                        <code>Forgot password?</code> Please contact the school office for help.
+                    </p>
+                </div>
+
+                <div class="login-side-card">
+                    <h3>Unified School Management</h3>
+                    <p>From staff management to exam schedules, everything is organised inside a single, easy-to-use interface.</p>
+                    <ul class="login-side-list">
+                        <li><span>•</span> Manage teachers, students & non-teaching staff</li>
+                        <li><span>•</span> Schedule exams and track marks & attendance</li>
+                        <li><span>•</span> Monitor fees, transport & daily timetable</li>
+                        <li><span>•</span> Student portal shows exams, marks, fees & bus details</li>
+                        <li><span>•</span> New: Homework, notices & class-wise timetable features</li>
+                    </ul>
+                    <p style="font-size: 11px; opacity: 0.9;">Data is stored locally in your browser using modern HTML5 LocalStorage.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ======= PAGE: CONTACT + FEES (SEPARATE PAGE) ======= -->
+    <div id="page-contact" class="page">
+        <section id="contact-page" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Contact & Fee Information</h2>
+                <p class="section-subtitle">All important contact details and fee structures in one page.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <div class="contact-label">Campus Address</div>
+                        ABS Educity, Ayitti Jn, Trikaripur, Kasargode, Kerala, India
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Phone</div>
+                        +91-70321-19111
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">E-mail</div>
+                        info@absglobal.edu.in
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Office Hours</div>
+                        Monday – Friday · 9:00 AM – 4:00 PM
+                    </div>
+
+                    <!-- Simple enquiry form (stored locally, admin can see) -->
+                    <div style="margin-top:14px;">
+                        <div class="contact-label">Quick Enquiry (demo)</div>
+                        <input type="text" id="enquiry-name" class="input-field" placeholder="Your Name" />
+                        <input type="text" id="enquiry-phone" class="input-field" placeholder="Contact Number" />
+                        <input type="text" id="enquiry-message" class="input-field" placeholder="Your Question (short)" />
+                        <button class="btn" style="margin-top:8px;max-width:200px;" onclick="submitEnquiry()">Submit Enquiry</button>
+                        <p style="font-size:11px;color:var(--muted);margin-top:6px;">
+                            Enquiries are stored locally in this browser and visible to Admin in the dashboard.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mini-map">
+                    <div>
+                        <div class="contact-label">Class-wise Tuition Fees</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Annual Fee (₹)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="public-class-fee-table-body"></tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <div class="contact-label">Bus Fee (Distance-wise)</div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Up to Distance (km)</th>
+                                    <th>Annual Bus Fee (₹)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="public-bus-fee-table-body"></tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <div class="contact-label">Location Map</div>
+                        <p>Interactive campus map / Google Maps embed can be placed here if needed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ======= ADMIN DASHBOARD ======= -->
+    <div id="admin-dashboard" class="dashboard" style="display:none;">
+        <h2 class="section-title">Admin Dashboard</h2>
+
+        <!-- Quick Stats -->
+        <div class="table-box">
+            <h3>Quick Stats</h3>
+            <p id="admin-quick-stats" style="font-size:13px;color:var(--muted);"></p>
+        </div>
+
+        <!-- Fee Structure (Class & Bus) -->
+        <div class="table-box">
+            <h3>Fee Structure (Class & Bus)</h3>
+
+            <h4>Class-wise Tuition Fees</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Annual Fee (₹)</th>
+                    </tr>
+                </thead>
+                <tbody id="class-fee-structure-admin"></tbody>
+            </table>
+            <input type="text" id="class-fee-class" class="input-field" placeholder="Class (e.g., 3, 4, 8A)" />
+            <input type="number" id="class-fee-amount" class="input-field" placeholder="Annual Fee in ₹ (e.g., 5000)" />
+            <button class="btn" style="max-width:250px;margin-top:8px;" onclick="addClassFee()">Add / Update Class Fee</button>
+
+            <h4 style="margin-top:16px;">Bus Fees (Distance-wise)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Up to Distance (km)</th>
+                        <th>Annual Bus Fee (₹)</th>
+                    </tr>
+                </thead>
+                <tbody id="bus-fee-structure-admin"></tbody>
+            </table>
+            <input type="number" id="bus-fee-km" class="input-field" placeholder="Up to Distance (km), e.g., 2" />
+            <input type="number" id="bus-fee-amount" class="input-field" placeholder="Annual Fee in ₹ (e.g., 1000)" />
+            <button class="btn" style="max-width:250px;margin-top:8px;" onclick="addBusFeeSlab()">Add / Update Bus Fee Slab</button>
+        </div>
+
+        <!-- Staff Management -->
+        <div class="table-box">
+            <h3>Manage Staff</h3>
+            <table id="staff-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="staff-data"></tbody>
+            </table>
+            <button class="btn" style="max-width:180px;margin-top:10px;" onclick="addStaff()">Add Staff</button>
+        </div>
+
+        <!-- Teacher Management -->
+        <div class="table-box">
+            <h3>Manage Teachers</h3>
+            <table id="teacher-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Age</th>
+                        <th>Salary</th>
+                        <th>Email</th>
+                        <th>Class</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="teacher-data"></tbody>
+            </table>
+            <button class="btn" style="max-width:180px;margin-top:10px;" onclick="addTeacher()">Add Teacher</button>
+        </div>
+
+        <!-- Student Management -->
+        <div class="table-box">
+            <h3>Manage Students</h3>
+            <table id="student-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Age</th>
+                        <th>Division</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="student-data"></tbody>
+            </table>
+            <button class="btn" style="max-width:180px;margin-top:10px;" onclick="addStudent()">Add Student</button>
+        </div>
+
+        <!-- Exam Scheduling -->
+        <div class="table-box">
+            <h3>Schedule Exams</h3>
+            <input type="text" id="exam-name" class="input-field" placeholder="Exam Name" />
+            <input type="date" id="exam-date" class="input-field" />
+            <button class="btn" style="max-width:180px;margin-top:8px;" onclick="scheduleExam()">Schedule Exam</button>
+            <h4 style="margin-top:12px;">Upcoming Exams:</h4>
+            <ul id="exam-list"></ul>
+        </div>
+
+        <!-- Fee Management (Per-student dues) -->
+        <div class="table-box">
+            <h3>Manage Pending Fees (Per Student)</h3>
+            <table id="fee-table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="fee-table-data"></tbody>
+            </table>
+            <input type="text" id="fee-student-name" class="input-field" placeholder="Student Name" />
+            <input type="number" id="fee-amount" class="input-field" placeholder="Amount" />
+            <button class="btn" style="max-width:180px;margin-top:8px;" onclick="addFee()">Add Fee</button>
+            <h4 style="margin-top:12px;">Pending Fees:</h4>
+            <ul id="pending-fee-list"></ul>
+        </div>
+
+        <!-- Bus Management -->
+        <div class="table-box">
+            <h3>Bus Details</h3>
+            <input type="text" id="bus-number" class="input-field" placeholder="Bus Number" />
+            <input type="text" id="bus-driver" class="input-field" placeholder="Driver's Name" />
+            <input type="text" id="bus-aunty" class="input-field" placeholder="Aunty's Name" />
+            <input type="text" id="bus-route" class="input-field" placeholder="Route" />
+            <button class="btn" style="max-width:200px;margin-top:8px;" onclick="addBusDetails()">Add Bus Details</button>
+            <h4 style="margin-top:12px;">Bus Details:</h4>
+            <ul id="bus-detail-list"></ul>
+        </div>
+
+        <!-- Class Timetable (Admin Edit for Every Class) -->
+        <div class="table-box">
+            <h3>Class-wise Timetable (Admin View)</h3>
+            <table id="timetable-table-admin">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Day</th>
+                        <th>Subject</th>
+                        <th>Holiday</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="timetable-data-admin"></tbody>
+            </table>
+        </div>
+
+        <!-- Homework Overview -->
+        <div class="table-box">
+            <h3>Homework Overview</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Subject</th>
+                        <th>Title</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody id="homework-data-admin"></tbody>
+            </table>
+        </div>
+
+        <!-- Homework Marks Overview -->
+        <div class="table-box">
+            <h3>Homework Marks Overview</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Class</th>
+                        <th>Subject</th>
+                        <th>Homework</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody id="homework-marks-data-admin"></tbody>
+            </table>
+        </div>
+
+        <!-- Notice Board Management -->
+        <div class="table-box">
+            <h3>Notice Board</h3>
+            <input type="text" id="notice-text" class="input-field" placeholder="Type new notice / announcement" />
+            <button class="btn" style="max-width:200px;margin-top:8px;" onclick="addNotice()">Publish Notice</button>
+            <h4 style="margin-top:12px;">Current Notices:</h4>
+            <ul id="notice-list-admin"></ul>
+        </div>
+
+        <!-- Gallery Manager -->
+        <div class="table-box">
+            <h3>Gallery Manager</h3>
+            <input type="text" id="gallery-image-url" class="input-field" placeholder="Image URL (e.g., abs-farewell.jpg)" />
+            <input type="text" id="gallery-image-caption" class="input-field" placeholder="Caption (e.g., Farewell Day 2025)" />
+            <button class="btn" style="max-width:220px;margin-top:8px;" onclick="addGalleryImage()">Add to Gallery</button>
+            <h4 style="margin-top:12px;">Admin-added Gallery Items:</h4>
+            <ul id="gallery-admin-list"></ul>
+        </div>
+
+        <!-- Enquiry Viewer (from Contact page) -->
+        <div class="table-box">
+            <h3>Parent Enquiries</h3>
+            <ul id="enquiry-list-admin"></ul>
+        </div>
+
+        <button class="btn" style="max-width:160px;margin-top:12px;" onclick="logout('admin')">Logout</button>
+    </div>
+
+    <!-- ======= TEACHER DASHBOARD ======= -->
+    <div id="teacher-dashboard" class="dashboard" style="display:none;">
+        <h2 class="section-title">Teacher Dashboard</h2>
+
+        <!-- Adding Marks -->
+        <div class="table-box">
+            <h3>Add Student Marks (Exam)</h3>
+            <input type="text" id="marks-student-name" class="input-field" placeholder="Student Name" />
+            <input type="text" id="marks-class" class="input-field" placeholder="Class" />
+            <input type="number" id="marks-score" class="input-field" placeholder="Marks" />
+            <button class="btn" style="max-width:180px;margin-top:8px;" onclick="addMarks()">Add Marks</button>
+        </div>
+
+        <!-- Attendance Management -->
+        <div class="table-box">
+            <h3>Attendance Management</h3>
+            <input type="text" id="attendance-student-name" class="input-field" placeholder="Student Name" />
+            <input type="text" id="attendance-class" class="input-field" placeholder="Class" />
+            <input type="date" id="attendance-date" class="input-field" />
+            <button class="btn" style="max-width:200px;margin-top:8px;" onclick="addAttendance()">Add Attendance</button>
+        </div>
+
+        <!-- Timetable Management (Per Class) -->
+        <div class="table-box">
+            <h3>Manage Timetable</h3>
+            <input type="text" id="timetable-class" class="input-field" placeholder="Class (e.g., 8A)" />
+            <input type="text" id="timetable-day" class="input-field" placeholder="Day (e.g., Monday)" />
+            <input type="text" id="timetable-subject" class="input-field" placeholder="Subject" />
+            <label style="font-size:12px;display:flex;align-items:center;gap:6px;margin-top:6px;">
+                <input type="checkbox" id="holiday-checkbox" />
+                Mark as Holiday
+            </label>
+            <button class="btn" style="max-width:200px;margin-top:8px;" onclick="addTimetable()">Add Timetable Entry</button>
+            <h4 style="margin-top:12px;">Timetable Entries:</h4>
+            <table id="timetable-table">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Day</th>
+                        <th>Subject</th>
+                        <th>Holiday</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="timetable-data"></tbody>
+            </table>
+        </div>
+
+        <!-- Homework Management -->
+        <div class="table-box">
+            <h3>Assign Homework</h3>
+            <input type="text" id="homework-class" class="input-field" placeholder="Class (e.g., 8A)" />
+            <input type="text" id="homework-subject" class="input-field" placeholder="Subject" />
+            <input type="text" id="homework-title" class="input-field" placeholder="Homework Title" />
+            <input type="date" id="homework-due" class="input-field" />
+            <input type="text" id="homework-description" class="input-field" placeholder="Short Description (optional)" />
+            <button class="btn" style="max-width:210px;margin-top:8px;" onclick="addHomework()">Add Homework</button>
+
+            <h4 style="margin-top:12px;">All Homework Assigned:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Subject</th>
+                        <th>Title</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody id="homework-data-teacher"></tbody>
+            </table>
+        </div>
+
+        <!-- Homework Marks -->
+        <div class="table-box">
+            <h3>Homework Marks</h3>
+            <input type="text" id="hw-mark-student-name" class="input-field" placeholder="Student Name" />
+            <input type="text" id="hw-mark-class" class="input-field" placeholder="Class" />
+            <input type="text" id="hw-mark-subject" class="input-field" placeholder="Subject" />
+            <input type="text" id="hw-mark-title" class="input-field" placeholder="Homework Title" />
+            <input type="number" id="hw-mark-score" class="input-field" placeholder="Marks" />
+            <button class="btn" style="max-width:210px;margin-top:8px;" onclick="addHomeworkMark()">Add Homework Mark</button>
+        </div>
+
+        <!-- Notices for Teachers -->
+        <div class="table-box">
+            <h3>School Notices</h3>
+            <ul id="notice-list-teacher"></ul>
+        </div>
+
+        <!-- Class Notes -->
+        <div class="table-box">
+            <h3>Class Notes (for your reference)</h3>
+            <input type="text" id="class-notes-class" class="input-field" placeholder="Class (e.g., 8A)" />
+            <input type="text" id="class-notes-text" class="input-field" placeholder="Short note / reminder" />
+            <button class="btn" style="max-width:200px;margin-top:8px;" onclick="addClassNote()">Save Note</button>
+            <h4 style="margin-top:12px;">Recent Notes:</h4>
+            <ul id="class-notes-list"></ul>
+        </div>
+
+        <!-- Quick Student Search -->
+        <div class="table-box">
+            <h3>Quick Student Search</h3>
+            <input type="text" id="teacher-search-name" class="input-field" placeholder="Enter student name" />
+            <button class="btn" style="max-width:200px;margin-top:8px;" onclick="searchStudentFromTeacher()">Search</button>
+            <p id="teacher-search-result" style="font-size:13px;color:var(--muted);margin-top:8px;"></p>
+        </div>
+
+        <button class="btn" style="max-width:160px;margin-top:12px;" onclick="logout('teacher')">Logout</button>
+    </div>
+
+    <!-- ======= STUDENT DASHBOARD ======= -->
+    <div id="student-dashboard" class="dashboard" style="display:none;">
+        <h2 class="section-title">Student Dashboard</h2>
+
+        <!-- Profile -->
+        <div class="table-box">
+            <h3>Your Profile</h3>
+            <p id="student-profile" style="font-size:13px;color:var(--muted);"></p>
+        </div>
+
+        <!-- Exam Timetable -->
+        <div class="table-box">
+            <h3>Upcoming Exams</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exam Name</th>
+                        <th>Exam Date</th>
+                    </tr>
+                </thead>
+            <tbody id="exam-list-student"></tbody>
+            </table>
+        </div>
+
+        <!-- Attendance -->
+        <div class="table-box">
+            <h3>Your Attendance</h3>
+            <p id="attendance-status" style="font-size:13px;color:var(--muted);"></p>
+        </div>
+
+        <!-- Marks -->
+        <div class="table-box">
+            <h3>Your Exam Marks</h3>
+            <table id="marks-list">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody id="marks-data"></tbody>
+            </table>
+        </div>
+
+        <!-- Homework List -->
+        <div class="table-box">
+            <h3>Your Homework</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Title</th>
+                        <th>Due Date</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody id="homework-data-student"></tbody>
+            </table>
+        </div>
+
+        <!-- Homework Marks -->
+        <div class="table-box">
+            <h3>Your Homework Marks</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Subject</th>
+                        <th>Homework</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody id="homework-marks-data-student"></tbody>
+            </table>
+        </div>
+
+        <!-- Fee Status -->
+        <div class="table-box">
+            <h3>Pending Fees</h3>
+            <table id="pending-fee-status">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="pending-fee-list-student"></tbody>
+            </table>
+        </div>
+
+        <!-- Bus Details -->
+        <div class="table-box">
+            <h3>Bus Details</h3>
+            <ul id="bus-detail-list-student"></ul>
+        </div>
+
+        <!-- Notices -->
+        <div class="table-box">
+            <h3>School Notices</h3>
+            <ul id="notice-list-student"></ul>
+        </div>
+
+        <!-- Study Tip -->
+        <div class="table-box">
+            <h3>Study Tip</h3>
+            <p id="study-tip" style="font-size:13px;color:var(--muted);"></p>
+        </div>
+
+        <button class="btn" style="max-width:160px;margin-top:12px;" onclick="logout('student')">Logout</button>
+    </div>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="footer">
+        <p>
+            <span>ABS Global School</span>, Trikaripur · Kasargode, Kerala · Phone: +91-70321-19111<br />
+            © <span id="year"></span> ABS Educity. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'});">↑ Top</button>
+
+    <!-- ======= SCRIPT ======= -->
+    <script>
+        // Core data stores (LocalStorage)
+        let teachers = JSON.parse(localStorage.getItem("teachers")) || [];
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+        let staff = JSON.parse(localStorage.getItem("staff")) || [];
+        let exams = JSON.parse(localStorage.getItem("exams")) || [];
+        let timetable = JSON.parse(localStorage.getItem("timetable")) || [];
+        let fees = JSON.parse(localStorage.getItem("fees")) || [];
+        let busDetails = JSON.parse(localStorage.getItem("busDetails")) || [];
+        let marks = JSON.parse(localStorage.getItem("marks")) || [];
+        let attendanceRecords = JSON.parse(localStorage.getItem("attendance")) || [];
+        let homeworks = JSON.parse(localStorage.getItem("homeworks")) || [];
+        let homeworkMarks = JSON.parse(localStorage.getItem("homeworkMarks")) || [];
+        let notices = JSON.parse(localStorage.getItem("notices")) || [];
+        let galleryImages = JSON.parse(localStorage.getItem("galleryImages")) || [];
+        let classNotes = JSON.parse(localStorage.getItem("classNotes")) || [];
+        let classFees = JSON.parse(localStorage.getItem("classFees")) || [];
+        let busFeeSlabs = JSON.parse(localStorage.getItem("busFeeSlabs")) || [];
+        let enquiries = JSON.parse(localStorage.getItem("enquiries")) || [];
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // ===== SPA PAGE HANDLING =====
+        function openPublicPage(pageId, navLink, scrollToId) {
+            hideAllDashboards();
+            showPage(pageId);
+            if (scrollToId) {
+                setTimeout(() => {
+                    const target = document.getElementById(scrollToId);
+                    if (target) target.scrollIntoView({ behavior: "smooth" });
+                }, 50);
+            } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+
+            document.querySelectorAll(".nav-links a").forEach(a => a.classList.remove("active"));
+            if (navLink && navLink.classList) {
+                navLink.classList.add("active");
+            }
+        }
+
+        function showPage(id) {
+            document.querySelectorAll(".page").forEach(p => {
+                p.style.display = p.id === id ? "block" : "none";
+            });
+        }
+
+        function hideAllDashboards() {
+            document.getElementById("admin-dashboard").style.display = "none";
+            document.getElementById("teacher-dashboard").style.display = "none";
+            document.getElementById("student-dashboard").style.display = "none";
+        }
+
+        function getCurrentStudentName() {
+            return document.getElementById("student-username") ? document.getElementById("student-username").value.trim() : "";
+        }
+
+        function getCurrentStudent() {
+            const name = getCurrentStudentName();
+            return students.find((s) => s.name === name) || null;
+        }
+
+        // ===== LOGIN FUNCTIONS =====
+        function adminLogin() {
+            let username = document.getElementById("admin-username").value.trim();
+            let password = document.getElementById("admin-password").value.trim();
+
+            // Demo credentials remain same internally
+            if (username === "admin" && password === "admin123") {
+                hideAllDashboards();
+                document.getElementById("admin-dashboard").style.display = "block";
+                showPage("page-portals"); // keep portals page visible behind
+                displayStaff();
+                displayTeachers();
+                displayStudents();
+                displayExams();
+                displayPendingFees();
+                displayBusDetails();
+                displayTimetable();
+                displayTimetableAdmin();
+                displayHomeworksAdmin();
+                displayHomeworkMarksAdmin();
+                displayNoticesAdmin();
+                displayGalleryAdmin();
+                displayDynamicGallery();
+                displayPublicFees();
+                displayEnquiriesAdmin();
+                displayClassFeeStructureAdmin();
+                displayBusFeeStructureAdmin();
+                updateAdminQuickStats();
+                window.scrollTo({ top: document.getElementById("admin-dashboard").offsetTop - 60, behavior: "smooth" });
+            } else {
+                alert("Invalid Admin Credentials");
+            }
+        }
+
+        function teacherLogin() {
+            let username = document.getElementById("teacher-username").value.trim();
+            let password = document.getElementById("teacher-password").value.trim();
+
+            if (username === "teacher" && password === "teacher123") {
+                hideAllDashboards();
+                document.getElementById("teacher-dashboard").style.display = "block";
+                showPage("page-portals");
+                displayTimetable();
+                displayHomeworksTeacher();
+                displayNoticesTeacher();
+                displayClassNotesTeacher();
+                window.scrollTo({ top: document.getElementById("teacher-dashboard").offsetTop - 60, behavior: "smooth" });
+            } else {
+                alert("Invalid Teacher Credentials");
+            }
+        }
+
+        function studentLogin() {
+            let username = document.getElementById("student-username").value.trim();
+            let password = document.getElementById("student-password").value.trim();
+
+            if (username === "student" && password === "student123") {
+                hideAllDashboards();
+                document.getElementById("student-dashboard").style.display = "block";
+                showPage("page-portals");
+                displayStudentProfile();
+                displayExamsForStudent();
+                displayPendingFeesForStudent();
+                displayBusDetailsForStudent();
+                displayMarks();
+                displayAttendance();
+                displayHomeworksForStudent();
+                displayHomeworkMarksForStudent();
+                displayNoticesStudent();
+                setStudyTip();
+                window.scrollTo({ top: document.getElementById("student-dashboard").offsetTop - 60, behavior: "smooth" });
+            } else {
+                alert("Invalid Student Credentials");
+            }
+        }
+
+        function logout(role) {
+            hideAllDashboards();
+            openPublicPage("page-portals", document.getElementById("nav-portals"));
+        }
+
+        function updateAdminQuickStats() {
+            const p = document.getElementById("admin-quick-stats");
+            if (!p) return;
+            p.textContent = `Teachers: ${teachers.length} · Students: ${students.length} · Staff: ${staff.length} · Upcoming Exams: ${exams.length} · Buses: ${busDetails.length}`;
+        }
+
+        // ===== STAFF =====
+        function addStaff() {
+            let name = prompt("Enter Staff's Name:");
+            let role = prompt("Enter Staff's Role:");
+            let salary = prompt("Enter Staff's Salary:");
+
+            if (!name || !role || !salary) return;
+
+            staff.push({ name, role, salary });
+            localStorage.setItem("staff", JSON.stringify(staff));
+            displayStaff();
+            updateAdminQuickStats();
+        }
+
+        function displayStaff() {
+            const staffData = document.getElementById("staff-data");
+            if (!staffData) return;
+            staffData.innerHTML = "";
+            staff.forEach((staffMember, index) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${staffMember.name}</td>
+                    <td>${staffMember.role}</td>
+                    <td>${staffMember.salary}</td>
+                    <td><button onclick="editStaff(${index})">Edit</button></td>
+                `;
+                staffData.appendChild(row);
+            });
+        }
+
+        function editStaff(index) {
+            let staffMember = staff[index];
+            staffMember.name = prompt("Edit Name", staffMember.name) || staffMember.name;
+            staffMember.role = prompt("Edit Role", staffMember.role) || staffMember.role;
+            staffMember.salary = prompt("Edit Salary", staffMember.salary) || staffMember.salary;
+
+            localStorage.setItem("staff", JSON.stringify(staff));
+            displayStaff();
+        }
+
+        // ===== TEACHERS =====
+        function addTeacher() {
+            let name = prompt("Enter Teacher's Name:");
+            let subject = prompt("Enter Teacher's Subject:");
+            let age = prompt("Enter Teacher's Age:");
+            let salary = prompt("Enter Teacher's Salary:");
+            let email = prompt("Enter Teacher's Email:");
+            let classAssigned = prompt("Enter Class Assigned:");
+
+            if (!name || !subject) return;
+
+            teachers.push({ name, subject, age, salary, email, classAssigned });
+            localStorage.setItem("teachers", JSON.stringify(teachers));
+            displayTeachers();
+            updateAdminQuickStats();
+        }
+
+        function displayTeachers() {
+            const teacherData = document.getElementById("teacher-data");
+            if (!teacherData) return;
+            teacherData.innerHTML = "";
+            teachers.forEach((teacher, index) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${teacher.name}</td>
+                    <td>${teacher.subject}</td>
+                    <td>${teacher.age}</td>
+                    <td>${teacher.salary}</td>
+                    <td>${teacher.email}</td>
+                    <td>${teacher.classAssigned}</td>
+                    <td><button onclick="editTeacher(${index})">Edit</button></td>
+                `;
+                teacherData.appendChild(row);
+            });
+        }
+
+        function editTeacher(index) {
+            let teacher = teachers[index];
+            teacher.name = prompt("Edit Name", teacher.name) || teacher.name;
+            teacher.subject = prompt("Edit Subject", teacher.subject) || teacher.subject;
+            teacher.age = prompt("Edit Age", teacher.age) || teacher.age;
+            teacher.salary = prompt("Edit Salary", teacher.salary) || teacher.salary;
+            teacher.email = prompt("Edit Email", teacher.email) || teacher.email;
+            teacher.classAssigned = prompt("Edit Class Assigned", teacher.classAssigned) || teacher.classAssigned;
+
+            localStorage.setItem("teachers", JSON.stringify(teachers));
+            displayTeachers();
+        }
+
+        // ===== STUDENTS =====
+        function addStudent() {
+            let name = prompt("Enter Student's Name:");
+            let classAssigned = prompt("Enter Student's Class:");
+            let age = prompt("Enter Student's Age:");
+            let division = prompt("Enter Student's Division:");
+
+            if (!name || !classAssigned) return;
+
+            students.push({ name, classAssigned, age, division });
+            localStorage.setItem("students", JSON.stringify(students));
+            displayStudents();
+            updateAdminQuickStats();
+        }
+
+        function displayStudents() {
+            const studentData = document.getElementById("student-data");
+            if (!studentData) return;
+            studentData.innerHTML = "";
+            students.forEach((student, index) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${student.name}</td>
+                    <td>${student.classAssigned}</td>
+                    <td>${student.age}</td>
+                    <td>${student.division}</td>
+                    <td><button onclick="editStudent(${index})">Edit</button></td>
+                `;
+                studentData.appendChild(row);
+            });
+        }
+
+        function editStudent(index) {
+            let student = students[index];
+            student.name = prompt("Edit Name", student.name) || student.name;
+            student.classAssigned = prompt("Edit Class", student.classAssigned) || student.classAssigned;
+            student.age = prompt("Edit Age", student.age) || student.age;
+            student.division = prompt("Edit Division", student.division) || student.division;
+
+            localStorage.setItem("students", JSON.stringify(students));
+            displayStudents();
+        }
+
+        // ===== EXAMS =====
+        function scheduleExam() {
+            let examName = document.getElementById("exam-name").value.trim();
+            let examDate = document.getElementById("exam-date").value;
+
+            if (!examName || !examDate) {
+                alert("Please enter exam name and date.");
+                return;
+            }
+
+            exams.push({ examName, examDate });
+            localStorage.setItem("exams", JSON.stringify(exams));
+            displayExams();
+            displayExamsForStudent();
+            document.getElementById("exam-name").value = "";
+            document.getElementById("exam-date").value = "";
+            updateAdminQuickStats();
+        }
+
+        function displayExams() {
+            const examList = document.getElementById("exam-list");
+            if (!examList) return;
+            examList.innerHTML = "";
+            exams.forEach((exam) => {
+                let li = document.createElement("li");
+                li.textContent = `${exam.examName} – ${exam.examDate}`;
+                examList.appendChild(li);
+            });
+        }
+
+        function displayExamsForStudent() {
+            const examList = document.getElementById("exam-list-student");
+            if (!examList) return;
+            examList.innerHTML = "";
+            exams.forEach((exam) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td>${exam.examName}</td><td>${exam.examDate}</td>`;
+                examList.appendChild(row);
+            });
+        }
+
+        // ===== FEES: per-student pending =====
+        function addFee() {
+            let studentName = document.getElementById("fee-student-name").value.trim();
+            let amount = document.getElementById("fee-amount").value.trim();
+
+            if (!studentName || !amount) {
+                alert("Enter student name and amount.");
+                return;
+            }
+
+            let studentExists = students.some((s) => s.name === studentName);
+            if (!studentExists) {
+                alert("Student not found!");
+                return;
+            }
+
+            fees.push({ studentName, amount });
+            localStorage.setItem("fees", JSON.stringify(fees));
+            displayPendingFees();
+            displayPendingFeesForStudent();
+            document.getElementById("fee-student-name").value = "";
+            document.getElementById("fee-amount").value = "";
+        }
+
+        function displayPendingFees() {
+            const feeTableData = document.getElementById("fee-table-data");
+            if (!feeTableData) return;
+            feeTableData.innerHTML = "";
+            fees.forEach((fee) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td>${fee.studentName}</td><td>${fee.amount}</td>`;
+                feeTableData.appendChild(row);
+            });
+        }
+
+        function displayPendingFeesForStudent() {
+            const pendingFeeListStudent = document.getElementById("pending-fee-list-student");
+            if (!pendingFeeListStudent) return;
+            pendingFeeListStudent.innerHTML = "";
+
+            const studentUsername = getCurrentStudentName();
+            fees.forEach((fee) => {
+                if (fee.studentName === studentUsername) {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `<td>${fee.studentName}</td><td>${fee.amount}</td>`;
+                    pendingFeeListStudent.appendChild(row);
+                }
+            });
+        }
+
+        // ===== FEE STRUCTURE (CLASS & BUS) =====
+        function addClassFee() {
+            let className = document.getElementById("class-fee-class").value.trim();
+            let amount = document.getElementById("class-fee-amount").value.trim();
+
+            if (!className || !amount) {
+                alert("Enter class and amount.");
+                return;
+            }
+
+            let existing = classFees.find((c) => c.className === className);
+            if (existing) {
+                existing.amount = amount;
+            } else {
+                classFees.push({ className, amount });
+            }
+            localStorage.setItem("classFees", JSON.stringify(classFees));
+
+            displayClassFeeStructureAdmin();
+            displayPublicClassFees();
+
+            document.getElementById("class-fee-class").value = "";
+            document.getElementById("class-fee-amount").value = "";
+        }
+
+        function displayClassFeeStructureAdmin() {
+            const tbody = document.getElementById("class-fee-structure-admin");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            classFees.forEach((cf, idx) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td>${cf.className}</td><td>${cf.amount}</td>`;
+                tbody.appendChild(row);
+            });
+        }
+
+        function addBusFeeSlab() {
+            let km = document.getElementById("bus-fee-km").value.trim();
+            let amount = document.getElementById("bus-fee-amount").value.trim();
+
+            if (!km || !amount) {
+                alert("Enter distance and amount.");
+                return;
+            }
+
+            let existing = busFeeSlabs.find((b) => String(b.km) === String(km));
+            if (existing) {
+                existing.amount = amount;
+            } else {
+                busFeeSlabs.push({ km, amount });
+            }
+            localStorage.setItem("busFeeSlabs", JSON.stringify(busFeeSlabs));
+
+            displayBusFeeStructureAdmin();
+            displayPublicBusFees();
+
+            document.getElementById("bus-fee-km").value = "";
+            document.getElementById("bus-fee-amount").value = "";
+        }
+
+        function displayBusFeeStructureAdmin() {
+            const tbody = document.getElementById("bus-fee-structure-admin");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            busFeeSlabs
+                .slice()
+                .sort((a, b) => Number(a.km) - Number(b.km))
+                .forEach((bf) => {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `<td>Up to ${bf.km} km</td><td>${bf.amount}</td>`;
+                    tbody.appendChild(row);
+                });
+        }
+
+        function displayPublicClassFees() {
+            const tbody = document.getElementById("public-class-fee-table-body");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            if (!classFees.length) {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td colspan="2">Fee structure will be updated soon. Please contact school office.</td>`;
+                tbody.appendChild(row);
+                return;
+            }
+            classFees.forEach((cf) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td>${cf.className}</td><td>${cf.amount}</td>`;
+                tbody.appendChild(row);
+            });
+        }
+
+        function displayPublicBusFees() {
+            const tbody = document.getElementById("public-bus-fee-table-body");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            if (!busFeeSlabs.length) {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td colspan="2">Bus fee details will be updated shortly.</td>`;
+                tbody.appendChild(row);
+                return;
+            }
+            busFeeSlabs
+                .slice()
+                .sort((a, b) => Number(a.km) - Number(b.km))
+                .forEach((bf) => {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `<td>Up to ${bf.km} km</td><td>${bf.amount}</td>`;
+                    tbody.appendChild(row);
+                });
+        }
+
+        function displayPublicFees() {
+            displayPublicClassFees();
+            displayPublicBusFees();
+        }
+
+        // ===== BUS DETAILS =====
+        function addBusDetails() {
+            let busNumber = document.getElementById("bus-number").value.trim();
+            let driver = document.getElementById("bus-driver").value.trim();
+            let aunty = document.getElementById("bus-aunty").value.trim();
+            let route = document.getElementById("bus-route").value.trim();
+
+            if (!busNumber || !driver || !route) {
+                alert("Please fill at least bus number, driver, and route.");
+                return;
+            }
+
+            busDetails.push({ busNumber, driver, aunty, route });
+            localStorage.setItem("busDetails", JSON.stringify(busDetails));
+            displayBusDetails();
+            displayBusDetailsForStudent();
+
+            document.getElementById("bus-number").value = "";
+            document.getElementById("bus-driver").value = "";
+            document.getElementById("bus-aunty").value = "";
+            document.getElementById("bus-route").value = "";
+            updateAdminQuickStats();
+        }
+
+        function displayBusDetails() {
+            const list = document.getElementById("bus-detail-list");
+            if (!list) return;
+            list.innerHTML = "";
+            busDetails.forEach((bus) => {
+                let li = document.createElement("li");
+                li.textContent = `Bus ${bus.busNumber} – Driver: ${bus.driver}, Aunty: ${bus.aunty || "N/A"}, Route: ${bus.route}`;
+                list.appendChild(li);
+            });
+        }
+
+        function displayBusDetailsForStudent() {
+            const list = document.getElementById("bus-detail-list-student");
+            if (!list) return;
+            list.innerHTML = "";
+            busDetails.forEach((bus) => {
+                let li = document.createElement("li");
+                li.textContent = `Bus ${bus.busNumber} – Driver: ${bus.driver}, Aunty: ${bus.aunty || "N/A"}, Route: ${bus.route}`;
+                list.appendChild(li);
+            });
+        }
+
+        // ===== MARKS (EXAM) =====
+        function addMarks() {
+            let studentName = document.getElementById("marks-student-name").value.trim();
+            let studentClass = document.getElementById("marks-class").value.trim();
+            let score = document.getElementById("marks-score").value.trim();
+
+            if (!studentName || !studentClass || !score) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            let studentExists = students.some((s) => s.name === studentName && s.classAssigned === studentClass);
+            if (!studentExists) {
+                alert("Student not found or class mismatch.");
+                return;
+            }
+
+            marks.push({ studentName, studentClass, score });
+            localStorage.setItem("marks", JSON.stringify(marks));
+            alert("Marks added successfully!");
+
+            document.getElementById("marks-student-name").value = "";
+            document.getElementById("marks-class").value = "";
+            document.getElementById("marks-score").value = "";
+        }
+
+        function displayMarks() {
+            const marksData = document.getElementById("marks-data");
+            if (!marksData) return;
+            marksData.innerHTML = "";
+            const studentUsername = getCurrentStudentName();
+
+            marks.forEach((mark) => {
+                if (mark.studentName === studentUsername) {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `<td>${mark.studentClass}</td><td>${mark.score}</td>`;
+                    marksData.appendChild(row);
+                }
+            });
+        }
+
+        // ===== ATTENDANCE =====
+        function addAttendance() {
+            let studentName = document.getElementById("attendance-student-name").value.trim();
+            let studentClass = document.getElementById("attendance-class").value.trim();
+            let dateValue = document.getElementById("attendance-date").value;
+
+            if (!studentName || !studentClass || !dateValue) {
+                alert("Please fill all attendance fields.");
+                return;
+            }
+
+            let attendanceDate = new Date(dateValue);
+            let dayOfWeek = attendanceDate.getDay(); // 0 = Sunday, 6 = Saturday
+
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                alert("No attendance can be recorded on weekends!");
+                return;
+            }
+
+            attendanceRecords.push({ studentName, studentClass, date: attendanceDate.toISOString() });
+            localStorage.setItem("attendance", JSON.stringify(attendanceRecords));
+            alert("Attendance recorded successfully!");
+
+            document.getElementById("attendance-student-name").value = "";
+            document.getElementById("attendance-class").value = "";
+            document.getElementById("attendance-date").value = "";
+        }
+
+        function displayAttendance() {
+            const status = document.getElementById("attendance-status");
+            if (!status) return;
+            const studentUsername = getCurrentStudentName();
+            let totalDays = 0;
+            let presentDays = 0;
+
+            attendanceRecords.forEach((record) => {
+                if (record.studentName === studentUsername) {
+                    totalDays++;
+                    presentDays++;
+                }
+            });
+
+            status.textContent = totalDays
+                ? `Attendance: ${presentDays}/${totalDays} days`
+                : "No attendance records found.";
+        }
+
+        // ===== TIMETABLE (PER CLASS) =====
+        function addTimetable() {
+            let className = document.getElementById("timetable-class").value.trim();
+            let day = document.getElementById("timetable-day").value.trim();
+            let subject = document.getElementById("timetable-subject").value.trim();
+            let isHoliday = document.getElementById("holiday-checkbox").checked;
+
+            if (!className || !day) {
+                alert("Please enter class and day.");
+                return;
+            }
+
+            timetable.push({ className, day, subject, isHoliday });
+            localStorage.setItem("timetable", JSON.stringify(timetable));
+            displayTimetable();
+            displayTimetableAdmin();
+
+            document.getElementById("timetable-day").value = "";
+            document.getElementById("timetable-subject").value = "";
+            document.getElementById("holiday-checkbox").checked = false;
+        }
+
+        function displayTimetable() {
+            const tbody = document.getElementById("timetable-data");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            timetable.forEach((entry, index) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${entry.className || "-"}</td>
+                    <td>${entry.day}</td>
+                    <td>${entry.isHoliday ? "-" : entry.subject || "-"}</td>
+                    <td>${entry.isHoliday ? "Yes" : "No"}</td>
+                    <td><button onclick="editTimetable(${index})">Edit</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function displayTimetableAdmin() {
+            const tbody = document.getElementById("timetable-data-admin");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            timetable.forEach((entry, index) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${entry.className || "-"}</td>
+                    <td>${entry.day}</td>
+                    <td>${entry.isHoliday ? "-" : entry.subject || "-"}</td>
+                    <td>${entry.isHoliday ? "Yes" : "No"}</td>
+                    <td><button onclick="editTimetable(${index})">Edit</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function editTimetable(index) {
+            let entry = timetable[index];
+            entry.className = prompt("Edit Class", entry.className || "") || entry.className;
+            entry.day = prompt("Edit Day", entry.day) || entry.day;
+            entry.subject = prompt("Edit Subject", entry.subject || "") || entry.subject;
+            entry.isHoliday = confirm("Mark as holiday? Click OK for Yes, Cancel for No.");
+            localStorage.setItem("timetable", JSON.stringify(timetable));
+            displayTimetable();
+            displayTimetableAdmin();
+        }
+
+        // ===== HOMEWORK =====
+        function addHomework() {
+            let className = document.getElementById("homework-class").value.trim();
+            let subject = document.getElementById("homework-subject").value.trim();
+            let title = document.getElementById("homework-title").value.trim();
+            let dueDate = document.getElementById("homework-due").value;
+            let description = document.getElementById("homework-description").value.trim();
+
+            if (!className || !subject || !title || !dueDate) {
+                alert("Please fill class, subject, title and due date.");
+                return;
+            }
+
+            homeworks.push({
+                className,
+                subject,
+                title,
+                dueDate,
+                description,
+                createdAt: new Date().toISOString()
+            });
+
+            localStorage.setItem("homeworks", JSON.stringify(homeworks));
+            displayHomeworksTeacher();
+            displayHomeworksAdmin();
+            displayHomeworksForStudent();
+
+            document.getElementById("homework-class").value = "";
+            document.getElementById("homework-subject").value = "";
+            document.getElementById("homework-title").value = "";
+            document.getElementById("homework-due").value = "";
+            document.getElementById("homework-description").value = "";
+        }
+
+        function displayHomeworksTeacher() {
+            const tbody = document.getElementById("homework-data-teacher");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            homeworks.forEach((hw) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${hw.className}</td>
+                    <td>${hw.subject}</td>
+                    <td>${hw.title}</td>
+                    <td>${hw.dueDate}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function displayHomeworksAdmin() {
+            const tbody = document.getElementById("homework-data-admin");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            homeworks.forEach((hw) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${hw.className}</td>
+                    <td>${hw.subject}</td>
+                    <td>${hw.title}</td>
+                    <td>${hw.dueDate}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function displayHomeworksForStudent() {
+            const tbody = document.getElementById("homework-data-student");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            const student = getCurrentStudent();
+
+            if (!student) {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td colspan="4">No linked student profile found. Please contact school office.</td>`;
+                tbody.appendChild(row);
+                return;
+            }
+
+            const filtered = homeworks.filter((hw) => hw.className === student.classAssigned);
+            if (!filtered.length) {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td colspan="4">No homework assigned for your class yet.</td>`;
+                tbody.appendChild(row);
+                return;
+            }
+
+            filtered.forEach((hw) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${hw.subject}</td>
+                    <td>${hw.title}</td>
+                    <td>${hw.dueDate}</td>
+                    <td>${hw.description || "-"}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // ===== HOMEWORK MARKS =====
+        function addHomeworkMark() {
+            let studentName = document.getElementById("hw-mark-student-name").value.trim();
+            let className = document.getElementById("hw-mark-class").value.trim();
+            let subject = document.getElementById("hw-mark-subject").value.trim();
+            let title = document.getElementById("hw-mark-title").value.trim();
+            let score = document.getElementById("hw-mark-score").value.trim();
+
+            if (!studentName || !className || !subject || !title || !score) {
+                alert("Please fill all fields for homework marks.");
+                return;
+            }
+
+            homeworkMarks.push({
+                studentName,
+                className,
+                subject,
+                title,
+                score
+            });
+
+            localStorage.setItem("homeworkMarks", JSON.stringify(homeworkMarks));
+            alert("Homework marks added!");
+
+            displayHomeworkMarksAdmin();
+            displayHomeworkMarksForStudent();
+
+            document.getElementById("hw-mark-student-name").value = "";
+            document.getElementById("hw-mark-class").value = "";
+            document.getElementById("hw-mark-subject").value = "";
+            document.getElementById("hw-mark-title").value = "";
+            document.getElementById("hw-mark-score").value = "";
+        }
+
+        function displayHomeworkMarksAdmin() {
+            const tbody = document.getElementById("homework-marks-data-admin");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            homeworkMarks.forEach((hwm) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${hwm.studentName}</td>
+                    <td>${hwm.className}</td>
+                    <td>${hwm.subject}</td>
+                    <td>${hwm.title}</td>
+                    <td>${hwm.score}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function displayHomeworkMarksForStudent() {
+            const tbody = document.getElementById("homework-marks-data-student");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            const studentName = getCurrentStudentName();
+            const filtered = homeworkMarks.filter((hwm) => hwm.studentName === studentName);
+
+            if (!filtered.length) {
+                let row = document.createElement("tr");
+                row.innerHTML = `<td colspan="4">No homework marks recorded yet.</td>`;
+                tbody.appendChild(row);
+                return;
+            }
+
+            filtered.forEach((hwm) => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${hwm.className}</td>
+                    <td>${hwm.subject}</td>
+                    <td>${hwm.title}</td>
+                    <td>${hwm.score}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // ===== NOTICES =====
+        function addNotice() {
+            let text = document.getElementById("notice-text").value.trim();
+            if (!text) {
+                alert("Please type a notice before publishing.");
+                return;
+            }
+            notices.push({
+                text,
+                date: new Date().toLocaleString()
+            });
+            localStorage.setItem("notices", JSON.stringify(notices));
+            displayNoticesAdmin();
+            displayNoticesTeacher();
+            displayNoticesStudent();
+            document.getElementById("notice-text").value = "";
+        }
+
+        function displayNoticesAdmin() {
+            const list = document.getElementById("notice-list-admin");
+            if (!list) return;
+            list.innerHTML = "";
+            notices.forEach((n) => {
+                let li = document.createElement("li");
+                li.textContent = `[${n.date}] ${n.text}`;
+                list.appendChild(li);
+            });
+        }
+
+        function displayNoticesTeacher() {
+            const list = document.getElementById("notice-list-teacher");
+            if (!list) return;
+            list.innerHTML = "";
+            notices.forEach((n) => {
+                let li = document.createElement("li");
+                li.textContent = `[${n.date}] ${n.text}`;
+                list.appendChild(li);
+            });
+        }
+
+        function displayNoticesStudent() {
+            const list = document.getElementById("notice-list-student");
+            if (!list) return;
+            list.innerHTML = "";
+            notices.forEach((n) => {
+                let li = document.createElement("li");
+                li.textContent = `[${n.date}] ${n.text}`;
+                list.appendChild(li);
+            });
+        }
+
+        // ===== GALLERY (ADMIN) =====
+        function addGalleryImage() {
+            let url = document.getElementById("gallery-image-url").value.trim();
+            let caption = document.getElementById("gallery-image-caption").value.trim();
+
+            if (!url || !caption) {
+                alert("Please enter both image URL and caption.");
+                return;
+            }
+
+            galleryImages.push({ url, caption });
+            localStorage.setItem("galleryImages", JSON.stringify(galleryImages));
+            displayGalleryAdmin();
+            displayDynamicGallery();
+
+            document.getElementById("gallery-image-url").value = "";
+            document.getElementById("gallery-image-caption").value = "";
+        }
+
+        function displayGalleryAdmin() {
+            const list = document.getElementById("gallery-admin-list");
+            if (!list) return;
+            list.innerHTML = "";
+            galleryImages.forEach((img) => {
+                let li = document.createElement("li");
+                li.textContent = `${img.caption} (${img.url})`;
+                list.appendChild(li);
+            });
+        }
+
+        function displayDynamicGallery() {
+            const container = document.getElementById("dynamic-gallery");
+            if (!container) return;
+            container.innerHTML = "";
+            galleryImages.forEach((img) => {
+                let figure = document.createElement("figure");
+                figure.className = "gallery-card";
+                figure.innerHTML = `
+                    <img src="${img.url}" alt="${img.caption}" />
+                    <figcaption>${img.caption}</figcaption>
+                `;
+                container.appendChild(figure);
+            });
+        }
+
+        // ===== CLASS NOTES (TEACHER) =====
+        function addClassNote() {
+            let className = document.getElementById("class-notes-class").value.trim();
+            let text = document.getElementById("class-notes-text").value.trim();
+            if (!className || !text) {
+                alert("Please fill class and note.");
+                return;
+            }
+            classNotes.push({
+                className,
+                text,
+                date: new Date().toLocaleString()
+            });
+            localStorage.setItem("classNotes", JSON.stringify(classNotes));
+            displayClassNotesTeacher();
+            document.getElementById("class-notes-class").value = "";
+            document.getElementById("class-notes-text").value = "";
+        }
+
+        function displayClassNotesTeacher() {
+            const list = document.getElementById("class-notes-list");
+            if (!list) return;
+            list.innerHTML = "";
+            classNotes.slice(-10).forEach((note) => {
+                let li = document.createElement("li");
+                li.textContent = `[${note.date}] (${note.className}) ${note.text}`;
+                list.appendChild(li);
+            });
+        }
+
+        // ===== STUDENT SEARCH (TEACHER) =====
+        function searchStudentFromTeacher() {
+            const name = document.getElementById("teacher-search-name").value.trim();
+            const resultP = document.getElementById("teacher-search-result");
+            if (!resultP) return;
+
+            if (!name) {
+                resultP.textContent = "Type a student name to search.";
+                return;
+            }
+
+            const student = students.find((s) => s.name.toLowerCase() === name.toLowerCase());
+            if (!student) {
+                resultP.textContent = "No student found with that name.";
+                return;
+            }
+
+            resultP.textContent = `Found: ${student.name}, Class: ${student.classAssigned}, Division: ${student.division || "-"}, Age: ${student.age || "-"}`;
+        }
+
+        // ===== STUDENT PROFILE =====
+        function displayStudentProfile() {
+            const profileP = document.getElementById("student-profile");
+            if (!profileP) return;
+
+            const student = getCurrentStudent();
+            if (!student) {
+                profileP.textContent = "No linked student profile. Please ask the school office to update your details.";
+                return;
+            }
+
+            let busInfo = busDetails[0]
+                ? `Bus ${busDetails[0].busNumber} – Driver: ${busDetails[0].driver}`
+                : "Bus not assigned";
+
+            profileP.textContent = `Name: ${student.name} · Class: ${student.classAssigned} · Division: ${
+                student.division || "-"
+            } · Age: ${student.age || "-"} · Transport: ${busInfo}`;
+        }
+
+        // ===== STUDY TIP =====
+        function setStudyTip() {
+            const tips = [
+                "Revise your notes for 10 minutes every day instead of cramming at the last minute.",
+                "Teach a friend a topic – if you can explain it clearly, you have really understood it.",
+                "Keep your homework, books, and bag ready at night to start the morning calmly.",
+                "Take short breaks between study sessions to stay fresh and focused.",
+                "Solve at least 3–5 practice questions for each subject daily."
+            ];
+            const p = document.getElementById("study-tip");
+            if (!p) return;
+            const idx = Math.floor(Math.random() * tips.length);
+            p.textContent = tips[idx];
+        }
+
+        // ===== ENQUIRIES (FROM CONTACT PAGE) =====
+        function submitEnquiry() {
+            const name = document.getElementById("enquiry-name").value.trim();
+            const phone = document.getElementById("enquiry-phone").value.trim();
+            const message = document.getElementById("enquiry-message").value.trim();
+
+            if (!name || !phone || !message) {
+                alert("Please fill all enquiry fields.");
+                return;
+            }
+
+            enquiries.push({
+                name,
+                phone,
+                message,
+                date: new Date().toLocaleString()
+            });
+            localStorage.setItem("enquiries", JSON.stringify(enquiries));
+
+            document.getElementById("enquiry-name").value = "";
+            document.getElementById("enquiry-phone").value = "";
+            document.getElementById("enquiry-message").value = "";
+
+            alert("Enquiry submitted! (stored locally, visible in Admin dashboard)");
+        }
+
+        function displayEnquiriesAdmin() {
+            const list = document.getElementById("enquiry-list-admin");
+            if (!list) return;
+            list.innerHTML = "";
+            enquiries.forEach((e) => {
+                let li = document.createElement("li");
+                li.textContent = `[${e.date}] ${e.name} (${e.phone}) – ${e.message}`;
+                list.appendChild(li);
+            });
+        }
+
+        // ===== SCROLL TO TOP BUTTON =====
+        window.addEventListener("scroll", () => {
+            const btn = document.getElementById("scrollTopBtn");
+            if (!btn) return;
+            btn.style.display = window.scrollY > 300 ? "block" : "none";
+        });
+
+        // ===== WELCOME LINE (time-based greeting) =====
+        (function setWelcomeLine() {
+            const span = document.getElementById("welcome-line");
+            if (!span) return;
+            const hour = new Date().getHours();
+            let greeting = "Welcome to ABS Global School · Trikaripur, Kerala";
+            if (hour < 12) greeting = "Good Morning from ABS Global School · Trikaripur";
+            else if (hour < 18) greeting = "Good Afternoon from ABS Global School · Trikaripur";
+            else greeting = "Good Evening from ABS Global School · Trikaripur";
+            span.textContent = greeting;
+        })();
+
+        // ===== INITIAL LOAD =====
+        (function initialLoad() {
+            displayStaff();
+            displayTeachers();
+            displayStudents();
+            displayExams();
+            displayPendingFees();
+            displayBusDetails();
+            displayTimetable();
+            displayTimetableAdmin();
+            displayHomeworksAdmin();
+            displayHomeworkMarksAdmin();
+            displayNoticesAdmin();
+            displayGalleryAdmin();
+            displayDynamicGallery();
+            displayPublicFees();
+            displayEnquiriesAdmin();
+            displayClassFeeStructureAdmin();
+            displayBusFeeStructureAdmin();
+            updateAdminQuickStats();
+        })();
+    </script>
+</body>
+</html>
